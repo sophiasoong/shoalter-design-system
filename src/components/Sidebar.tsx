@@ -103,7 +103,8 @@ export default function Sidebar({ activeComponentId, onSelectComponent }: Sideba
   const locale = useLocale();
   const strings = useStrings().sidebar;
   const [query, setQuery] = useState('');
-  const [collapsed, setCollapsed] = useState(() => window.matchMedia(COLLAPSE_QUERY).matches);
+  // Collapsed by default at every viewport width; the user expands it on demand.
+  const [collapsed, setCollapsed] = useState(true);
   const [focusPending, setFocusPending] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -149,8 +150,12 @@ export default function Sidebar({ activeComponentId, onSelectComponent }: Sideba
   }, []);
 
   useEffect(() => {
+    // Narrow viewports still force the rail closed; growing past the breakpoint no
+    // longer auto-expands it, since collapsed is the resting state at every width.
     const mql = window.matchMedia(COLLAPSE_QUERY);
-    const handleChange = (e: MediaQueryListEvent) => setCollapsed(e.matches);
+    const handleChange = (e: MediaQueryListEvent) => {
+      if (e.matches) setCollapsed(true);
+    };
     mql.addEventListener('change', handleChange);
     return () => mql.removeEventListener('change', handleChange);
   }, []);
@@ -211,8 +216,14 @@ export default function Sidebar({ activeComponentId, onSelectComponent }: Sideba
             aria-label={collapsed ? strings.expand : strings.collapse}
             aria-pressed={collapsed}
           >
-            <span className="icon" aria-hidden="true">
-              {collapsed ? 'left_panel_open' : 'left_panel_close'}
+            {/* Both states use the menu_open glyph. Collapsed mirrors it (see
+                .ds-sidebar__toggle-icon--mirrored) so the chevron points toward the
+                content the click will reveal — matching the menu-close artwork. */}
+            <span
+              className={`icon ds-sidebar__toggle-icon${collapsed ? ' ds-sidebar__toggle-icon--mirrored' : ''}`}
+              aria-hidden="true"
+            >
+              menu_open
             </span>
           </button>
         </div>

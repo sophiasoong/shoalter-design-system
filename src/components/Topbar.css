@@ -21,9 +21,13 @@
   gap: var(--space-component-gap-sm);
 }
 
+/* FLAGGED: no icon token covers this size. The component/icon tiers step 24px (lg) → 36px
+   (xl); the 32px brand mark sits between them, so it is a literal here like the bar's own
+   68px height above (component/height/md is also 32px, but that is a control-height tier,
+   not an icon size, so it is not borrowed). */
 .ds-topbar__brand-icon {
-  width: var(--component-icon-lg); /* component/icon/lg */
-  height: var(--component-icon-lg); /* component/icon/lg */
+  width: 32px;
+  height: 32px;
 }
 
 .ds-topbar__brand-name {

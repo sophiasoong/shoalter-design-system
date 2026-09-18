@@ -83,9 +83,12 @@
   transition: opacity var(--duration-fast) ease;
 }
 
+/* The menu toggle sits at the sidebar's left edge (a hamburger reads as the start of a
+   navigation, not a panel-edge control). Its button box starts flush at the sidebar
+   padding, so the glyph's center sits 6px inboard of the search icon's below it. */
 .ds-sidebar__toggle-row {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-bottom: var(--space-component-gap-xs);
 }
 
@@ -108,6 +111,19 @@
   transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease;
 }
 
+/* The toggle's glyph is Material Symbols' menu_open in both states. The supplied
+   menu-close artwork is that glyph mirrored (chevron on the left, pointing right, lines
+   right-aligned), so the collapsed state flips it rather than shipping a raw SVG — the
+   font stays the single icon source, and the flip animates between the two states. */
+.ds-sidebar__toggle-icon {
+  display: block;
+  transition: transform var(--duration-normal) ease; /* duration/normal */
+}
+
+.ds-sidebar__toggle-icon--mirrored {
+  transform: scaleX(-1);
+}
+
 .ds-sidebar__toggle:hover {
   /* Same unaliasing gap as the nav item hover below — brand-primary-75 carries the
      same MMS value but shifts correctly in MMA. */
@@ -118,34 +134,6 @@
 .ds-sidebar__search {
   position: relative;
   margin-bottom: var(--space-layout-section-gap-sm);
-}
-
-/* Divider sits at the midpoint between the search icon's center and the first
-   nav item icon's center: half of (gap-after-search + title line box + title
-   gap + item top padding + half icon), minus half the search box height. */
-.ds-sidebar__search::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc(
-    100% +
-      (
-        (
-            var(--space-layout-section-gap-sm) + var(--typography-xxs-line-height) +
-              var(--space-component-gap-xs) + var(--space-component-gap-sm) +
-              (var(--component-icon-lg) / 2)
-          ) - (var(--component-height-md) / 2)
-      ) / 2
-  );
-  height: var(--border-sm);
-  background: var(--global-divider-neutral-light);
-  opacity: 0;
-  transition: opacity var(--duration-normal) ease;
-}
-
-.ds-sidebar--collapsed .ds-sidebar__search::after {
-  opacity: 1;
 }
 
 .ds-sidebar__search-icon-btn {
@@ -173,11 +161,31 @@
 
 .ds-sidebar__search-icon {
   color: var(--text-caption-primary-light);
+  transition: color var(--duration-fast) ease;
 }
 
+/* Collapsed rail: the search icon is the only clickable part of the field, so it takes
+   the menu toggle's exact hover treatment above (same 28px box, radius, tint, and ink
+   shift) and reads as a second rail button under it. Box size is applied only here:
+   the button is centered by its translate(-50%) so growing it doesn't move the glyph,
+   whereas the expanded field anchors it at the padding edge (and never hovers — its
+   pointer-events are off). */
 .ds-sidebar--collapsed .ds-sidebar__search-icon-btn {
   left: 50%;
   transform: translate(-50%, -50%);
+  width: var(--component-height-sm); /* component/height/sm */
+  height: var(--component-height-sm); /* component/height/sm */
+  border-radius: var(--radius-md); /* radius/md */
+  transition: left var(--duration-normal) ease, transform var(--duration-normal) ease,
+    background-color var(--duration-fast) ease;
+}
+
+.ds-sidebar--collapsed .ds-sidebar__search-icon-btn:hover {
+  background: var(--brand-primary-75); /* brand/primary/75 — same as .ds-sidebar__toggle:hover */
+}
+
+.ds-sidebar--collapsed .ds-sidebar__search-icon-btn:hover .ds-sidebar__search-icon {
+  color: var(--text-body-primary-neutral); /* text/body/primary/neutral */
 }
 
 .ds-sidebar__search-clear {
@@ -246,13 +254,25 @@
   color: var(--text-caption-primary-light);
   overflow: hidden;
   white-space: nowrap;
-  opacity: 1;
-  transition: opacity var(--duration-normal) ease, font-size var(--duration-normal) ease;
+  transition: color var(--duration-normal) ease, font-size var(--duration-normal) ease;
 }
 
+/* Collapsed rail: the label has no room, so each section title becomes the hairline
+   divider between its category group and the one above (the first group's line separates
+   it from the search field, so no separate search divider is needed). The text goes
+   transparent rather than opacity:0 so the line itself stays visible; the box shrinks to
+   the line's thickness and drops its padding so the line spans the rail edge to edge like
+   the sidebar's own right border. The larger bottom margin keeps the line centered: the
+   space above it (group margin-top, or the search field's margin-bottom) equals this
+   margin plus the list's own padding-top below it. */
 .ds-sidebar--collapsed .ds-sidebar__section-title {
-  opacity: 0;
+  height: var(--border-sm); /* border/sm */
+  padding: 0;
+  margin-bottom: calc(var(--space-layout-section-gap-sm) - var(--space-component-gap-xs)); /* space/layout/section/gap/sm − space/component/gap/xs */
   font-size: 0;
+  line-height: 0;
+  color: transparent;
+  background: var(--global-divider-neutral-light); /* global/divider/neutral/light */
 }
 
 .ds-sidebar__list {
@@ -314,6 +334,14 @@
 .ds-sidebar__item-icon {
   color: inherit;
   flex-shrink: 0;
+  transition: color var(--duration-fast) ease;
+}
+
+/* The active item's icon lights up in the brand's core primary (400) rather than
+   inheriting the label's darker primary-600, so the glyph reads as the highlight
+   while the text keeps its heavier ink. */
+.ds-sidebar__item--active .ds-sidebar__item-icon {
+  color: var(--brand-primary-400); /* brand/primary/400 */
 }
 
 .ds-sidebar__item-label {
