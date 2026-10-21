@@ -25,7 +25,7 @@ import {
   ZoomInIcon,
   ZoomOutIcon,
 } from './icons';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './Table.css';
 import './UploadDoc.css';
@@ -162,24 +162,14 @@ export default function ModalDoc({ onNavigate }: ModalDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Modal</DocTitle>
         <p className="ds-doc__lede">
           A Modal is a larger floating surface for tasks that need room — a form, a data table,
           a multi-step flow — while still blocking the page behind it. It composes a Header, a
           scrollable body, and a Footer across five fixed widths.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

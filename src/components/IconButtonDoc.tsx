@@ -9,12 +9,12 @@ import { Input } from './Input';
 import { Table, TableHeader, TableHeaderCell, TableRow, TableCell } from './Table';
 import Pagination from './Pagination';
 import { ButtonIcon, HeaderIcon, PaginationIcon, UploadIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './IconButtonDoc.css';
 
 const FIGMA_URL =
-  'https://www.figma.com/design/RU2sCgGMuU0PXUhKwYcpfr/MMS-Web-AI-Design-System?node-id=511-2837';
+  'https://www.figma.com/design/RU2sCgGMuU0PXUhKwYcpfr/MMS-Web-AI-Design-System?node-id=508-1562';
 
 const VARIANT_TABS = ['Primary', 'Danger', 'Feedback'] as const;
 type VariantTab = (typeof VARIANT_TABS)[number];
@@ -96,24 +96,14 @@ export default function IconButtonDoc({ onNavigate }: IconButtonDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Icon button</DocTitle>
         <p className="ds-doc__lede">
           Icon buttons trigger an action using only an icon, for contexts where the icon alone
           communicates the action clearly. Use the variant to signal intent (primary, danger,
           success) and the appearance to signal visual weight (solid, outline, ghost).
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

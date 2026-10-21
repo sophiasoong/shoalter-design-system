@@ -3,7 +3,7 @@ import { Input } from './Input';
 import Form, { FormRow, FormCol, FormField } from './Form';
 import { Table, TableHeader, TableHeaderCell, TableRow, TableCell } from './Table';
 import { FormIcon, TableIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './InputDoc.css';
 
@@ -37,24 +37,14 @@ export default function InputDoc({ onNavigate }: InputDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Input</DocTitle>
         <p className="ds-doc__lede">
           An Input is a bordered text field for free-form entry. Label holds a single typed
           value, Password masks it behind a visibility toggle, and Number restricts entry to
           numeric characters.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

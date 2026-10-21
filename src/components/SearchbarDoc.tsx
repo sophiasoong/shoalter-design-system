@@ -19,7 +19,7 @@ import AppSidebar from './AppSidebar';
 import List from './List';
 import { ProductIcon, PromotionIcon } from './assetIcons';
 import { TableIcon, TopbarIcon } from './icons';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './Table.css';
 import './SearchbarDoc.css';
@@ -160,24 +160,14 @@ export default function SearchbarDoc({ onNavigate }: SearchbarDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Search bar</DocTitle>
         <p className="ds-doc__lede">
           A Search bar is a bordered text field dedicated to querying a list or dataset. A
           trailing action icon submits the search, swapping to a clear icon once the field is
           focused with a typed value.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

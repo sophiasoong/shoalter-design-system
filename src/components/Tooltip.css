@@ -15,14 +15,16 @@
   filter: drop-shadow(0 2px 8px var(--interactive-dropdown-panel-shadow-default));
 }
 
+/* Md/Lg cap the bubble rather than fixing it (decision 2026-10-21): short labels hug
+   content, long ones wrap once they reach the size's width token. */
 .ds-tooltip--md {
-  width: var(--component-width-tooltip-md);
+  max-width: var(--component-width-tooltip-md); /* component/width/tooltip/md */
 }
 
 .ds-tooltip--lg {
   /* component/width/tooltip/lg was re-pointed from 320px to Figma's 600px on 2026-09-08;
      previously a flagged literal. */
-  width: var(--component-width-tooltip-lg); /* component/width/tooltip/lg */
+  max-width: var(--component-width-tooltip-lg); /* component/width/tooltip/lg */
 }
 
 .ds-tooltip__bubble {

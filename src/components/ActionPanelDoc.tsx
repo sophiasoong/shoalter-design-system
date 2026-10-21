@@ -12,7 +12,7 @@ import IconButton from './IconButton';
 import { Step, type StepItemData } from './Step';
 import { HeaderIcon, ButtonIcon, RadioIcon, SelectIcon, BadgeIcon } from './icons';
 import { useBrandMode } from '../brandMode';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './ActionPanelDoc.css';
 
@@ -119,23 +119,13 @@ export default function ActionPanelDoc({ onNavigate }: ActionPanelDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Action panel</DocTitle>
         <p className="ds-doc__lede">
           An Action panel is a small, self-contained surface for a focused set of controls —
           filters, quick settings, or read-only details — attached beside the content it acts on.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

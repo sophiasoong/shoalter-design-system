@@ -9,7 +9,7 @@ import { Input } from './Input';
 import { Radio } from './Radio';
 import { DatePicker } from './DatePicker';
 import { ListIcon, FormIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './FormDoc.css';
 import './UploadDoc.css';
@@ -192,24 +192,14 @@ export default function UploadDoc({ onNavigate }: UploadDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Upload</DocTitle>
         <p className="ds-doc__lede">
           Upload is a field for getting files into the product — a dropzone with drag-and-drop and
           progress feedback, a grid of image tiles, or a plain trigger button, each paired with a
           list of the files already attached.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

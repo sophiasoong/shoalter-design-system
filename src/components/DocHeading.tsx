@@ -1,5 +1,6 @@
 import { COMPONENTS } from '../data/components';
 import { docHeading, tabLabel } from '../i18n/docs';
+import { useStrings } from '../i18n/strings';
 import { useLocale } from '../locale';
 
 /* Locale-aware doc-page headings. Each renders exactly the markup the doc pages used to
@@ -7,6 +8,31 @@ import { useLocale } from '../locale';
    `<h3 className="ds-section__subtitle">`), so ButtonDoc.css's shared heading styles and
    the AnchorNav's section ids keep working unchanged — only the text follows the EN/中
    toggle. Children are the English text, which doubles as the translation key. */
+
+/** The "Component" eyebrow above the page h1 — site chrome, so it reads from i18n/strings. */
+export function DocEyebrow() {
+  const strings = useStrings().doc;
+  return <span className="ds-doc__eyebrow">{strings.eyebrow}</span>;
+}
+
+/** The header's "View in Figma" button — the secondary/solid/md Button markup every page
+ * wrote by hand, with only the label following the EN/中 toggle. */
+export function FigmaLink({ href }: { href: string }) {
+  const strings = useStrings().doc;
+  return (
+    <a
+      className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <span className="icon ds-button__icon" aria-hidden="true">
+        draw
+      </span>
+      <span className="ds-button__label">{strings.viewInFigma}</span>
+    </a>
+  );
+}
 
 /** Page h1 — the component's name, translated via its `nameZh` in data/components.ts. */
 export function DocTitle({ children }: { children: string }) {

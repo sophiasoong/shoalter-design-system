@@ -24,6 +24,10 @@ const en = {
   anchorNav: {
     label: 'On this page',
   },
+  doc: {
+    eyebrow: 'Component',
+    viewInFigma: 'View in Figma',
+  },
 };
 
 export type Strings = typeof en;
@@ -44,6 +48,10 @@ const zh: Strings = {
   },
   anchorNav: {
     label: '本頁內容',
+  },
+  doc: {
+    eyebrow: '組件',
+    viewInFigma: '在 Figma 中查看',
   },
 };
 

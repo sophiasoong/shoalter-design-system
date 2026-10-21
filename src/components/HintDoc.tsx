@@ -9,7 +9,7 @@ import Pagination from './Pagination';
 import List from './List';
 import { ProductIcon, PromotionIcon } from './assetIcons';
 import { DropdownIcon, TableIcon, SearchbarIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './Table.css';
 import './ModalDoc.css';
@@ -79,7 +79,7 @@ export default function HintDoc({ onNavigate }: HintDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Hint</DocTitle>
         <p className="ds-doc__lede">
           A Hint is a small tooltip-style bubble that surfaces extra information or guidance
@@ -87,17 +87,7 @@ export default function HintDoc({ onNavigate }: HintDocProps) {
           focusing on an element, and disappears once the pointer leaves the target's range —
           most commonly used when a Select option's text is too long to fit on one line.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

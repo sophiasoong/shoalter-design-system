@@ -6,7 +6,7 @@ import { Tag } from './Tag';
 import Button from './Button';
 import { IconButtonIcon, AssetsIcon } from './icons';
 import { ProductIcon, PromotionIcon } from './assetIcons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './ListDoc.css';
 
@@ -42,24 +42,14 @@ export default function ListDoc({ onNavigate }: ListDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>List</DocTitle>
         <p className="ds-doc__lede">
           A List is a single row in a set of results or entries — a search result with a
           thumbnail, a recent-search entry, or a compact uploaded-file row, all built from the
           same component at a different size.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

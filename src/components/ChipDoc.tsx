@@ -7,7 +7,7 @@ import { DropdownOption } from './Dropdown';
 import Button from './Button';
 import { SearchbarIcon, SelectIcon, TextareaIcon, TabIcon, TableIcon } from './icons';
 import { ProductIcon, PromotionIcon } from './assetIcons';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './Select.css';
 import './ChipDoc.css';
@@ -168,7 +168,7 @@ export default function ChipDoc({ onNavigate }: ChipDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Chip</DocTitle>
         <p className="ds-doc__lede">
           A Chip is a compact, pill-shaped control used to filter, tag, or trigger an action.
@@ -176,17 +176,7 @@ export default function ChipDoc({ onNavigate }: ChipDocProps) {
           discrete piece of user-entered data and can be removed; Action chips trigger a command,
           similar to a small button.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

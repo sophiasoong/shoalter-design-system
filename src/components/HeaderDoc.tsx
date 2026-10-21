@@ -11,7 +11,7 @@ import { DateRangePicker } from './DateRangePicker';
 import Button from './Button';
 import IconButton from './IconButton';
 import { IconButtonIcon, ToggleIcon, AssetsIcon } from './icons';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './UploadDoc.css';
 import './HeaderDoc.css';
@@ -215,24 +215,14 @@ export default function HeaderDoc({ onNavigate }: HeaderDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Header</DocTitle>
         <p className="ds-doc__lede">
           A Header titles a surface — a modal, a form, a section, or a row in a list — and
           carries the controls that act on it: an info tooltip, a status tag, a toggle, a
           button, or an expander.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

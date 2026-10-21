@@ -17,7 +17,7 @@ import { FilterChip } from './Chip';
 import Pagination from './Pagination';
 import { IconButtonIcon, FooterIcon, DropdownIcon, TableIcon } from './icons';
 import { useBrandMode, brandLogoSrc } from '../brandMode';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './Table.css';
 
@@ -180,24 +180,14 @@ export default function ButtonDoc({ onNavigate }: ButtonDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Button</DocTitle>
         <p className="ds-doc__lede">
           Buttons trigger an action or navigation, in forms, dialogs, toolbars, and cards. Use the
           variant to signal intent (primary, secondary, danger) and the appearance to signal
           visual weight (solid, outline, ghost).
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

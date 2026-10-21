@@ -3,7 +3,7 @@ import { ProgressBar, ProgressRing } from './Indicator';
 import Upload, { UploadDropzone, UploadImageItem } from './Upload';
 import Dialog from './Dialog';
 import { UploadIcon, TableIcon, DialogIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './IndicatorDoc.css';
 
@@ -30,24 +30,14 @@ export default function IndicatorDoc({ onNavigate }: IndicatorDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Indicator</DocTitle>
         <p className="ds-doc__lede">
           A Progress Indicator expresses an unspecified wait time or shows how far a process
           has advanced. It comes in two forms — a circular Ring and a linear Bar — both driven
           by the same 0-100 progress value.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

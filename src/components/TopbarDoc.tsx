@@ -7,7 +7,7 @@ import { Badge } from './Badge';
 import { Searchbar } from './Searchbar';
 import { IconButtonIcon, SearchbarIcon, DropdownIcon, AssetsIcon } from './icons';
 import { useBrandMode, brandLogoSrc } from '../brandMode';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './TopbarDoc.css';
 
@@ -38,23 +38,13 @@ export default function TopbarDoc({ onNavigate }: TopbarDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Topbar</DocTitle>
         <p className="ds-doc__lede">
           The Topbar anchors the top of the product shell — store switching, search, and account
           controls all live in one fixed bar above the page content.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

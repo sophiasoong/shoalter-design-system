@@ -1,6 +1,14 @@
 import json, re
+from pathlib import Path
 
-with open('/Users/sophiasoong/Documents/AI Playground/MD/tokens.json') as f:
+# Paths resolve from this script's location, so the generator keeps working wherever the
+# design-system folder sits: the Figma export lives beside it in AI Playground/MD, and the
+# output is this repo's own src/styles/tokens.css.
+REPO_ROOT = Path(__file__).resolve().parent.parent
+TOKENS_JSON = REPO_ROOT.parent / 'MD' / 'tokens.json'
+TOKENS_CSS = REPO_ROOT / 'src' / 'styles' / 'tokens.css'
+
+with open(TOKENS_JSON) as f:
     data = json.loads(json.loads(f.read()))
 
 # Since the 2026-09-08 export, single-mode collections (size / motion / opacity / shadow) are
@@ -296,7 +304,7 @@ for k in USED:
 lines.append('}')
 
 out = '\n'.join(lines) + '\n'
-with open('/Users/sophiasoong/Documents/AI Playground/playground/design-system/src/styles/tokens.css', 'w') as f:
+with open(TOKENS_CSS, 'w') as f:
     f.write(out)
 
 print('missing tokens:', missing)

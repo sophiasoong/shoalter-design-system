@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Card } from './Card';
 import Button from './Button';
 import { ListIcon, ButtonIcon, TagIcon } from './icons';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './CardDoc.css';
 
@@ -22,24 +22,14 @@ export default function CardDoc({ onNavigate }: CardDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Card</DocTitle>
         <p className="ds-doc__lede">
           A Card is a self-contained pricing plan surface — a price block, an itemized list of
           what's included, and an optional call-to-action. Reach for it when comparing plans or
           quoting an add-on, side by side with other Cards.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

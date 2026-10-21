@@ -58,7 +58,8 @@ import {
   StoreHktv20Icon,
   StoreThePlace20Icon,
 } from './iconSizeGroups';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow } from './DocHeading';
+import { useStrings } from '../i18n/strings';
 import './AssetsDoc.css';
 
 const ICON_FIGMA_URL =
@@ -253,12 +254,13 @@ function formatIconLabel(name: IconName): string {
 }
 
 function FigmaRef({ href }: { href: string }) {
+  const strings = useStrings().doc;
   return (
     <a className="ds-assets__ref" href={href} target="_blank" rel="noreferrer">
       <span className="icon icon--xs" aria-hidden="true">
         draw
       </span>
-      View in Figma
+      {strings.viewInFigma}
     </a>
   );
 }
@@ -275,7 +277,7 @@ export default function AssetsDoc({ onNavigate }: AssetsDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Assets</DocTitle>
         <p className="ds-doc__lede">
           Assets bundles three small, non-interactive display primitives that other

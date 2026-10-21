@@ -11,7 +11,7 @@ import Breadcrumb, { BreadcrumbItem, BreadcrumbSeparator } from './Breadcrumb';
 import { LineTabItem } from './Tab';
 import { Table, TableHeader, TableHeaderCell, TableRow, TableCell } from './Table';
 import { ListIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './ModalDoc.css';
 import './StepDoc.css';
@@ -129,24 +129,14 @@ export default function StepDoc({ onNavigate }: StepDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Step</DocTitle>
         <p className="ds-doc__lede">
           A Step indicator communicates progress through a multi-step flow. Each step shows its
           own status — not yet reached, in progress, finished, or errored — connected in
           sequence by a rail.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

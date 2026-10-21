@@ -5,7 +5,7 @@ import { ChevronDownIcon, InputChip } from './Chip';
 import { DropdownOption } from './Dropdown';
 import Button from './Button';
 import { ChipIcon, DropdownIcon, FormIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 
 const FIGMA_URL =
@@ -186,24 +186,14 @@ export default function SelectDoc({ onNavigate }: SelectDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Select</DocTitle>
         <p className="ds-doc__lede">
           A Select is a form-field trigger that opens a choice panel. It shows a label or
           placeholder when empty, can display chosen values as removable chips, and always ends
           in a trailing chevron.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

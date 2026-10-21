@@ -41,6 +41,8 @@ export default function AnchorNav({ sections }: AnchorNavProps) {
 
   return (
     <nav className="ds-anchor-nav" aria-label={strings.label}>
+      {/* Visible caption reuses the nav's accessible name, so the two never drift. */}
+      <p className="ds-anchor-nav__caption">{strings.label}</p>
       <ul className="ds-anchor-nav__list" role="list">
         {sections.map((section) => (
           <li key={section.id}>

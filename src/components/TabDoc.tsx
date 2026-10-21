@@ -5,7 +5,7 @@ import Pagination from './Pagination';
 import { Searchbar } from './Searchbar';
 import { FilterChip } from './Chip';
 import { ChipIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './TabDoc.css';
 
@@ -203,7 +203,7 @@ export default function TabDoc({ onNavigate }: TabDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Tab</DocTitle>
         <p className="ds-doc__lede">
           A Tab lets users switch between related views without leaving the page. Card tab reads
@@ -211,17 +211,7 @@ export default function TabDoc({ onNavigate }: TabDocProps) {
           tab is a connected, button-like control; Chip tab pairs a label with a row of filter
           chips.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

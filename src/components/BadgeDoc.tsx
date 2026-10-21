@@ -5,7 +5,7 @@ import ActionPanel, { ActionPanelField } from './ActionPanel';
 import { Select } from './Select';
 import Button from './Button';
 import { TableIcon, FormIcon, ActionPanelIcon } from './icons';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './BadgeDoc.css';
 
@@ -69,24 +69,14 @@ export default function BadgeDoc({ onNavigate }: BadgeDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Badge</DocTitle>
         <p className="ds-doc__lede">
           A Badge is a small color dot used to flag status at a glance — on its own as a
           standalone indicator, or paired with a text label. Unlike a Tag, it carries no
           background or border of its own; the dot is the entire signal.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

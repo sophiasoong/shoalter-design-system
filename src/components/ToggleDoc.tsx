@@ -6,7 +6,7 @@ import Form, { FormCol, FormField, FormRow } from './Form';
 import Header from './Header';
 import { Table, TableCell, TableHeader, TableHeaderCell, TableRow } from './Table';
 import { FormIcon, HeaderIcon, TableIcon } from './icons';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './ToggleDoc.css';
 
@@ -31,23 +31,13 @@ export default function ToggleDoc({ onNavigate }: ToggleDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Toggle</DocTitle>
         <p className="ds-doc__lede">
           A Toggle switches a single setting directly between two states — unlike a
           Checkbox, flipping it takes effect immediately, with no separate submit step.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

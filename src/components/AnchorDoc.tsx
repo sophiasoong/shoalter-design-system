@@ -10,7 +10,7 @@ import { Table, TableHeader, TableHeaderCell, TableRow, TableCell } from './Tabl
 import Pagination from './Pagination';
 import { Searchbar } from './Searchbar';
 import { FilterChip } from './Chip';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './FormDoc.css';
 import './AnchorDoc.css';
@@ -193,23 +193,13 @@ export default function AnchorDoc({ onNavigate: _onNavigate }: AnchorDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Anchor</DocTitle>
         <p className="ds-doc__lede">
           An Anchor stacks the links that jump a reader to a section of the current page,
           highlighting whichever one is in view.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

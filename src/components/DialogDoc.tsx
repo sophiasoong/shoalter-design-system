@@ -4,7 +4,7 @@ import Button from './Button';
 import { Checkbox } from './Checkbox';
 import { ProgressRing } from './Indicator';
 import { ButtonIcon, IndicatorIcon } from './icons';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './DialogDoc.css';
 
@@ -24,23 +24,13 @@ export default function DialogDoc({ onNavigate }: DialogDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Dialog</DocTitle>
         <p className="ds-doc__lede">
           A Dialog interrupts the current flow to ask for confirmation, surface a short message,
           or report progress. It always floats centered over a dimmed backdrop.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

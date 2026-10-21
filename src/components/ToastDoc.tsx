@@ -4,7 +4,7 @@ import Button from './Button';
 import IconButton from './IconButton';
 import AppTopbar from './AppTopbar';
 import { ButtonIcon, IconButtonIcon, FormIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './ToastDoc.css';
 
@@ -81,24 +81,14 @@ export default function ToastDoc({ onNavigate }: ToastDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Toast</DocTitle>
         <p className="ds-doc__lede">
           A Toast surfaces a brief, self-contained notification about the result of an action — a
           confirmation, a warning, or an error. Unlike a Banner, it always carries a semantic state
           and is meant to be transient.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

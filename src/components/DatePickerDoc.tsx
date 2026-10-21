@@ -11,7 +11,7 @@ import { Radio } from './Radio';
 import { Select } from './Select';
 import { Checkbox } from './Checkbox';
 import { CalendarIcon, FormIcon, ChipIcon, TableIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './DatePickerDoc.css';
 
@@ -75,23 +75,13 @@ export default function DatePickerDoc({ onNavigate }: DatePickerDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Datepicker</DocTitle>
         <p className="ds-doc__lede">
           A Datepicker lets a user pick a single date from a calendar popover anchored to a
           text-style trigger.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

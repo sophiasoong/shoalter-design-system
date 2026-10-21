@@ -19,7 +19,7 @@ import { Badge, type BadgeColor } from './Badge';
 import Breadcrumb, { BreadcrumbItem, BreadcrumbSeparator } from './Breadcrumb';
 import Pagination from './Pagination';
 import { ButtonIcon, IconButtonIcon, FormIcon } from './icons';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './BannerDoc.css';
 
@@ -171,23 +171,13 @@ export default function BannerDoc({ onNavigate }: BannerDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Banner</DocTitle>
         <p className="ds-doc__lede">
           A Banner surfaces a short, persistent message inline with the page content — a status
           update, a warning, or an announcement. Unlike a Dialog, it never blocks the page.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

@@ -9,6 +9,21 @@
   overflow-y: auto;
 }
 
+/* "On this page" caption: same caption treatment as the sidebar's category titles
+   (Sidebar.css .ds-sidebar__section-title) so the two rails read as one family. Its
+   start padding adds the links' indicator width to their text padding, so the caption
+   text lines up with the link labels rather than with the indicator line. */
+.ds-anchor-nav__caption {
+  margin: 0 0 var(--space-component-gap-xs); /* space/component/gap/xs */
+  padding-inline-start: calc(var(--border-md) + var(--space-component-padding-md)); /* border/md + space/component/padding/md */
+  font-size: var(--typography-xxs-font-size); /* typography/xxs/font-size */
+  line-height: var(--typography-xxs-line-height); /* typography/xxs/line-height */
+  font-weight: var(--typography-font-weight-bold); /* typography/font-weight/bold */
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-caption-primary-light); /* text/caption/primary/light */
+}
+
 .ds-anchor-nav__list {
   list-style: none;
   margin: 0;

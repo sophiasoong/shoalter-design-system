@@ -22,7 +22,7 @@ import {
   TableIcon,
   UploadIcon,
 } from './icons';
-import { DocTitle, SectionTitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './FormDoc.css';
 
@@ -740,24 +740,14 @@ export default function FormDoc({ onNavigate }: FormDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Form</DocTitle>
         <p className="ds-doc__lede">
           A Form is a collapsible section that groups related fields into a responsive column
           grid — Input, Select, Textarea, DatePicker, Toggle, and Radio controls stack inside
           labeled rows, with an optional embedded Table for line-item data.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

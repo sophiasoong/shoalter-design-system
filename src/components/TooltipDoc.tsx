@@ -21,7 +21,7 @@ import { Textarea } from './Textarea';
 import { DateRangePicker } from './DateRangePicker';
 import IconButton from './IconButton';
 import { TableIcon, FormIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, VariantLabel, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './Table.css';
 import './TooltipDoc.css';
@@ -377,7 +377,7 @@ export default function TooltipDoc({ onNavigate }: TooltipDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Tooltip</DocTitle>
         <p className="ds-doc__lede">
           A Tooltip is a floating label with a directional arrow that points back at the
@@ -385,17 +385,7 @@ export default function TooltipDoc({ onNavigate }: TooltipDocProps) {
           pointer leaves the target's range — used to annotate icon buttons, truncated
           labels, or any control whose purpose isn't obvious from its own content.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}
@@ -451,7 +441,7 @@ export default function TooltipDoc({ onNavigate }: TooltipDocProps) {
                 <span className="ds-anatomy__legend-num">2</span>
                 <span>
                   <strong>Label</strong> —{' '}
-                  <span>the tooltip text; wraps within the size's width instead of truncating (Sm never wraps)</span>
+                  <span>the tooltip text; wraps once it reaches the size's max-width instead of truncating (Sm never wraps)</span>
                 </span>
               </li>
               <li>
@@ -471,7 +461,7 @@ export default function TooltipDoc({ onNavigate }: TooltipDocProps) {
         <SectionTitle>Variants</SectionTitle>
         <p className="ds-section__desc">
           Position controls which side of the trigger the bubble sits on and which way the
-          arrow points; Size controls the bubble's width and whether its label can wrap.
+          arrow points; Size controls the bubble's max-width and whether its label can wrap.
         </p>
 
         <VariantLabel tabs>Position</VariantLabel>
@@ -518,14 +508,14 @@ export default function TooltipDoc({ onNavigate }: TooltipDocProps) {
               </div>
               <div className="ds-variant-row__cell">
                 <Tooltip size="md">Amet minim mollit non deserunt ullamco est sit aliq.</Tooltip>
-                <span className="ds-variant-row__cell-label">Md · 240px</span>
+                <span className="ds-variant-row__cell-label">Md · max 240px</span>
               </div>
               <div className="ds-variant-row__cell">
                 <Tooltip size="lg">
                   Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint velit
                   officia consequat duis enim velit mollit.
                 </Tooltip>
-                <span className="ds-variant-row__cell-label">Lg · 600px</span>
+                <span className="ds-variant-row__cell-label">Lg · max 600px</span>
               </div>
             </div>
           </div>
@@ -822,7 +812,7 @@ export default function TooltipDoc({ onNavigate }: TooltipDocProps) {
         <SectionTitle>Layout &amp; Spacing</SectionTitle>
         <p className="ds-section__desc">
           Padding, radius, shadow, and type are fixed across all sizes and positions — only
-          width changes.
+          the max-width changes. Bubbles hug their content and wrap once they reach it.
         </p>
         <table className="ds-table">
           <thead>
@@ -834,19 +824,19 @@ export default function TooltipDoc({ onNavigate }: TooltipDocProps) {
           </thead>
           <tbody>
             <tr>
-              <th scope="row">Width (Sm)</th>
+              <th scope="row">Max-width (Sm)</th>
               <td>—</td>
               <td>Hug content, no wrap</td>
             </tr>
             <tr>
-              <th scope="row">Width (Md)</th>
+              <th scope="row">Max-width (Md)</th>
               <td>
                 <code>--component-width-tooltip-md</code>
               </td>
               <td>240px</td>
             </tr>
             <tr>
-              <th scope="row">Width (Lg)</th>
+              <th scope="row">Max-width (Lg)</th>
               <td>
                 <code>--component-width-tooltip-lg</code>
               </td>

@@ -6,7 +6,7 @@ import { DatePicker } from './DatePicker';
 import Form, { FormRow, FormCol, FormField } from './Form';
 import IconButton from './IconButton';
 import { FormIcon, InputIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './RadioDoc.css';
 
@@ -43,23 +43,13 @@ export default function RadioDoc({ onNavigate }: RadioDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Radio</DocTitle>
         <p className="ds-doc__lede">
           A Radio lets a user select exactly one option from a set of mutually exclusive
           choices.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}

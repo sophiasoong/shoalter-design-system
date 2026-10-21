@@ -18,7 +18,7 @@ import {
   TableSelectCell,
 } from './Table';
 import { FormIcon, TableIcon } from './icons';
-import { DocTitle, SectionTitle, SectionSubtitle, TabLabel } from './DocHeading';
+import { DocTitle, SectionTitle, SectionSubtitle, TabLabel, DocEyebrow, FigmaLink } from './DocHeading';
 import './ButtonDoc.css';
 import './Table.css';
 import './CheckboxDoc.css';
@@ -125,23 +125,13 @@ export default function CheckboxDoc({ onNavigate }: CheckboxDocProps) {
   return (
     <div className="ds-doc">
       <header className="ds-doc__header">
-        <span className="ds-doc__eyebrow">Component</span>
+        <DocEyebrow />
         <DocTitle>Checkbox</DocTitle>
         <p className="ds-doc__lede">
           A Checkbox lets a user select one or more options from a set. Its indeterminate
           state represents a parent whose children are only partially selected.
         </p>
-        <a
-          className="ds-doc__figma-link ds-button ds-button--secondary ds-button--solid ds-button--md"
-          href={FIGMA_URL}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="icon ds-button__icon" aria-hidden="true">
-            draw
-          </span>
-          <span className="ds-button__label">View in Figma</span>
-        </a>
+        <FigmaLink href={FIGMA_URL} />
       </header>
 
       {/* ---------------------------------------------------------------- */}
