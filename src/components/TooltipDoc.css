@@ -70,15 +70,14 @@
   color: var(--text-helper-default); /* text/helper/default */
 }
 
-/* ---- Example: Table header tab — reserves headroom above AND left of the frame
-   so the SKU ID / Brand TableHeaderCell tooltips (which render above the header via
-   `bottom: calc(100% + gap)`, centered on their icon via `left: 50%; transform:
-   translateX(-50%)` — see Table.css) aren't clipped. Table.css's own
+/* ---- Example: Table header tab — reserves headroom above the frame so the SKU ID /
+   Brand TableHeaderCell tooltips (which render above the header via
+   `bottom: calc(100% + gap)` — see Table.css) aren't clipped. Table.css's own
    .ds-table-example__scroll sets `overflow-x: auto`, which per the CSS overflow
    spec forces overflow-y to also compute as `auto` (there's no way to keep one axis
    auto and the other visible) — so anything poking outside the frame on any edge
    gets clipped by the box's own scrollport (the clip boundary is the padding box,
-   not the content box). Real (visible) padding on the affected edges reserves
+   not the content box). Real (visible) padding on the affected edge reserves
    clip-safe room for the tooltip inside that scrollport instead. Scoped to this
    page via a second class alongside Table.css's shared one, rather than editing
    that shared rule, since TableDoc's own Default instance has no tooltip and
@@ -87,11 +86,22 @@
   padding-top: 60px; /* flagged: no token matches this tooltip-popup clearance value;
     sized to the rendered Tooltip sm bubble height (~52px) plus space/component/gap/xs
     (4px) above the header, with a small buffer. */
-  padding-left: 50px; /* flagged: no token matches this tooltip-popup clearance value;
-    SKU ID is the first (leftmost) column with a tooltip, and its centered bubble is
-    wide enough to overhang the frame's left edge by ~46px (measured) — this reserves
-    that much room plus a small buffer. Columns further right (e.g. Brand) don't need
-    it, but padding-left applies to the whole scrollport, not per-column. */
+}
+
+/* No matching padding-left: the table fills the container's full width instead, so the
+   leftmost tooltip column's bubble would overhang (and be clipped by) the scrollport's
+   left edge under Table.css's default centered anchoring. Re-anchor this example's
+   header tooltips to Figma's Top-right behaviour — bubble extends rightward from the
+   icon, arrow near the bubble's left edge — which keeps every bubble inside the frame
+   no matter how wide the Sm (nowrap) label runs. */
+.ds-tooltip-example__table-scroll .ds-datatable__header-tooltip {
+  /* left: 50% (Table.css) is the info icon's centre; shift back by the arrow wrapper's
+     own padding-inline plus half the 16px arrow so the arrow tip still lands on the icon. */
+  transform: translateX(calc(-1 * (var(--space-component-padding-xl) + 8px)));
+}
+
+.ds-tooltip-example__table-scroll .ds-datatable__header-tooltip .ds-tooltip__arrow-wrapper {
+  justify-content: flex-start;
 }
 
 /* ---- Example: Chat function "Reference in Figma" link — duplicated from
